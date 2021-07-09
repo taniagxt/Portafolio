@@ -1,0 +1,99 @@
+/*Created by Tania Gonzalez
+
+CLASE DE UNA IP Y TRANSFORMACIÓN A BINARIO*/
+
+#include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+using namespace std;
+
+class IP{
+    private: //Atributos de las clase.
+    int s1, s2, s3, s4;
+    public: //Metodos de la clase.
+    IP (int,int,int,int); //Constructor.
+    void Clase (); //Clase de la IP
+    void Binario (); //Transformacion
+};
+
+IP::IP(int _s1, int _s2, int _s3, int _s4){ //Inicializacion de las variables
+    s1 = _s1;
+    s2 = _s2;
+    s3 = _s3;
+    s4 = _s4;
+}
+
+void IP::Clase(){
+ if(s1>=0 || s1<=127){
+    cout<<"El IP es clase A"<<endl;
+ }
+ else if(s1>=128 || s1<=191){
+    cout<<"El IP es clase B"<<endl;
+ }
+ else if(s1>=192 || s1<=223){
+    cout<<"El IP es clase C"<<endl;
+ }
+ else if(s1>=224 || s1<=239){
+    cout<<"El IP es clase D"<<endl;
+ }
+ else if(s1>=240 || s1<=247){
+    cout<<"El IP es clase E"<<endl;
+ }
+}
+
+void IP::Binario(){ //Realizamos la transformacion a binario
+    int const bits=8;
+    int i, F_ponderacion[bits]={128,64,32,16,8,4,2,1};
+    cout<<"La direccion IP en binario es: "<<endl;
+    for (i=0; i<bits; i++){
+        if(s1>= F_ponderacion[i]){
+            s1 = s1 - F_ponderacion[i];
+            cout<<"1";
+        }
+        else{
+            cout<<"0";
+        }
+    }
+        for (i=0; i<bits; i++){
+        if(s2>= F_ponderacion[i]){
+            s2 = s2 - F_ponderacion[i];
+            cout<<"1";
+        }
+        else{
+            cout<<"0";
+        }
+    }
+        for (i=0; i<bits; i++){
+        if(s3>= F_ponderacion[i]){
+            s3 = s3 - F_ponderacion[i];
+            cout<<"1";
+        }
+        else{
+            cout<<"0";
+        }
+    }
+        for (i=0; i<bits; i++){
+        if(s4>= F_ponderacion[i]){
+            s4 = s4 - F_ponderacion[i];
+            cout<<"1";
+        }
+        else{
+            cout<<"0";
+        }
+    }
+
+}
+int main(){
+    int s1,s2,s3,s4;
+    cout<<"Ingrese la primera seccion de la IP"<<endl; //Pedimos la IP
+    cin>>s1;
+    cout<<"Ingrese la segunda seccion de la IP"<<endl;
+    cin>>s2;
+    cout<<"Ingrese la tercera seccion de la IP"<<endl;
+    cin>>s3;
+    cout<<"Ingrese la cuarta seccion de la IP"<<endl;
+    cin>>s4;
+    IP rl=IP(s1,s2,s3,s4);
+    rl.Clase();
+    rl.Binario();
+}
