@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main (){
+	int N=0, M=0, R=0;
+	printf("Escriba N: \n");
+	scanf("%d", &N);
+	printf("Escriba M \n");
+	scanf("%d", &M);
+	do {
+	    R = N%M;
+	    if(R != 0){
+		N=M;
+		M=R; 
+	    }
+	} while (R !=0);
+    printf("M: %d \n", M);
+}
