@@ -1,3 +1,7 @@
+7*
+English: This Code shows the n value of the fibonacci sequence.
+
+Español: Este codigo te mostrara el enesimo valor en la serie de fibonacci.*/
 #include<stdio.h>
 
 int main(){
